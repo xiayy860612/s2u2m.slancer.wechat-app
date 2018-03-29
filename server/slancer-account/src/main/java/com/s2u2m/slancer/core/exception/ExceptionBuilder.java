@@ -1,0 +1,17 @@
+package com.s2u2m.slancer.core.exception;
+
+import com.s2u2m.slancer.core.exception.error.ErrorTypeEnum;
+import com.s2u2m.slancer.core.exception.error.IErrorCodeEnum;
+
+public class ExceptionBuilder {
+
+    public static <ET extends IErrorCodeEnum> S2u2mSpringException build(
+            ET errCode, String errMsg) {
+        int code = errCode.getTypeEnum().getType() << ErrorTypeEnum.errorTypeLength
+                | errCode.getCode();
+        S2u2mSpringException exception = new S2u2mSpringException();
+        exception.setErrCode(code);
+        exception.setErrMsg(errMsg);
+        return exception;
+    }
+}

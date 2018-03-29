@@ -1,0 +1,6 @@
+# logs ignore
+
+*.log
+logs/*
+
+# target/

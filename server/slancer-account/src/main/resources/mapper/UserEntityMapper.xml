@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.s2u2m.slancer.account.mapper.UserMapper">
+    <resultMap id="UserEntityMap" type="UserEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag"/>
+    </resultMap>
+
+    <sql id="all_fields">
+        id, nick_name, password,
+        create_time, update_time, delete_flag
+    </sql>
+
+    <insert id="insert" parameterType="UserEntity">
+        insert into user_info (
+        <include refid="all_fields"/>
+        )
+        values (
+        #{id}, #{nickName}, #{password},
+        #{createTime}, #{updateTime}, #{deleteFlag}
+        )
+    </insert>
+
+</mapper>
