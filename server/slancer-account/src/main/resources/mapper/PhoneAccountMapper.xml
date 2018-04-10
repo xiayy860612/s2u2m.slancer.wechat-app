@@ -19,4 +19,10 @@
         )
     </insert>
 
+    <select id="selectByPhone" resultMap="PhoneAccountEntityMap">
+        select <include refid="all_fields" />
+        from phone_account
+        where phone = #{phone}
+    </select>
+
 </mapper>

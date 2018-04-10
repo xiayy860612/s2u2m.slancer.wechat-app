@@ -14,7 +14,7 @@ public enum ErrorTypeEnum {
     AccountServiceError(101)
     ;
 
-    public static final int errorTypeLength = 20;
+    public static final int TYPE_LF_SHIFT = 20;
 
     private int type = 0;
     ErrorTypeEnum(int type) {

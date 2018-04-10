@@ -62,4 +62,8 @@ public class S2u2mRedisCache {
     public void del(String key) {
         redisTemplate.delete(key);
     }
+
+    public void refresh(String key, long expireMs) {
+        redisTemplate.expire(key, expireMs, TimeUnit.MILLISECONDS);
+    }
 }

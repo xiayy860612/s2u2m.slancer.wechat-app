@@ -12,6 +12,6 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class Response<T extends ResponseData> extends BaseResponse {
+public class Response<T> extends BaseResponse {
     private T data;
 }

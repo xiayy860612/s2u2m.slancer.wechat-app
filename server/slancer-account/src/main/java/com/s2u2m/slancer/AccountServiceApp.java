@@ -8,9 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author xiayy860612
  */
 @SpringBootApplication
-public class AccountServiceMain {
+public class AccountServiceApp {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(AccountServiceMain.class, args);
+        SpringApplication.run(AccountServiceApp.class, args);
     }
 }

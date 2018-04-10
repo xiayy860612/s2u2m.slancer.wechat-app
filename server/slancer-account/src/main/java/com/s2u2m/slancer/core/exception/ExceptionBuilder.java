@@ -7,7 +7,7 @@ public class ExceptionBuilder {
 
     public static <ET extends IErrorCodeEnum> S2u2mSpringException build(
             ET errCode, String errMsg) {
-        int code = errCode.getTypeEnum().getType() << ErrorTypeEnum.errorTypeLength
+        int code = errCode.getTypeEnum().getType() << ErrorTypeEnum.TYPE_LF_SHIFT
                 | errCode.getCode();
         S2u2mSpringException exception = new S2u2mSpringException();
         exception.setErrCode(code);

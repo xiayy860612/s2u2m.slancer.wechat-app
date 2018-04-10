@@ -25,4 +25,27 @@
         )
     </insert>
 
+    <select id="selectById" resultMap="UserEntityMap">
+        select <include refid="all_fields" />
+        from user_info
+        where id=#{id}
+    </select>
+
+    <update id="update" parameterType="UserEntity">
+        update user_info
+        <set>
+            <if test="nickName != null and nickName !=''">
+                nick_name=#{nickName},
+            </if>
+            <if test="password != null and password !=''">
+                password=#{password},
+            </if>
+            update_time=#{updateTime},
+            <if test="deleteFlag != null">
+                delete_flag=#{deleteFlag}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
 </mapper>

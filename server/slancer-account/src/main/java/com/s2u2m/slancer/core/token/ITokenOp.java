@@ -5,4 +5,6 @@ public interface ITokenOp <DT extends AbTokenData> {
     String token(DT data);
 
     DT data(String token);
+
+    void refresh(String token);
 }

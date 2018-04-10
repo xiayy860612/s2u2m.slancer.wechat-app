@@ -17,6 +17,7 @@ public enum AccountErrorCode implements IErrorCodeEnum {
     PhoneAccountNotExisted(106),
     PhoneLoginCodeNotExisted(107),
     PhoneLoginCodeNotMatched(108),
+    PhoneAccountExisted(109),
     ;
 
     @Override

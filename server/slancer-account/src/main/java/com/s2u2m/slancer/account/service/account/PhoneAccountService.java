@@ -39,15 +39,18 @@ public class PhoneAccountService {
     @Autowired
     PhoneAccountMapper phoneAccountMapper;
 
-    @Autowired
-    PasswordFormatProperty passwordFormatProperty;
-
     public String getRegCode(String phone) {
         // check format
         if (!new PhoneFormatChecker(phone).check()) {
             throw ExceptionBuilder.build(
                     AccountErrorCode.PhoneInvalid,
                     String.format("phone[%s] invalid", phone));
+        }
+
+        PhoneAccountEntity entity = phoneAccountMapper.selectByPhone(phone);
+        if (entity != null) {
+            throw ExceptionBuilder.build(AccountErrorCode.PhoneAccountExisted,
+                    String.format("phone[%s] account already existed", phone));
         }
 
         String code = RandomUtil.nextString(config.getCodeLen());
@@ -64,13 +67,6 @@ public class PhoneAccountService {
             throw ExceptionBuilder.build(
                     AccountErrorCode.PhoneInvalid,
                     String.format("phone[%s] invalid", info.getPhone()));
-        }
-
-        if (!new PasswordFormatChecker(info.getPassword(), passwordFormatProperty)
-                .check()) {
-            throw ExceptionBuilder.build(
-                    AccountErrorCode.PasswordInvalid,
-                    "password invalid");
         }
 
         if (!info.getPassword().equals(info.getPwdConfirm())) {
