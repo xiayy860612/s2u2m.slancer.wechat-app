@@ -47,11 +47,11 @@ public class PhoneAccountService {
                     String.format("phone[%s] invalid", phone));
         }
 
-        PhoneAccountEntity entity = phoneAccountMapper.selectByPhone(phone);
-        if (entity != null) {
-            throw ExceptionBuilder.build(AccountErrorCode.PhoneAccountExisted,
-                    String.format("phone[%s] account already existed", phone));
-        }
+//        PhoneAccountEntity entity = phoneAccountMapper.selectByPhone(phone);
+//        if (entity != null) {
+//            throw ExceptionBuilder.build(AccountErrorCode.PhoneAccountExisted,
+//                    String.format("phone[%s] account already existed", phone));
+//        }
 
         String code = RandomUtil.nextString(config.getCodeLen());
         cache.set(cache.createKey(PhoneCodeCache.RegPreKey, phone),
