@@ -1,7 +1,6 @@
 package com.s2u2m.slancer.account.service;
 
 import com.s2u2m.slancer.account.entity.UserEntity;
-import com.s2u2m.slancer.account.mapper.UserMapper;
 import com.s2u2m.slancer.test.AbS2u2mSpringTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

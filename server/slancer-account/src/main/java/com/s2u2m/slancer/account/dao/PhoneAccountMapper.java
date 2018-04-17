@@ -1,4 +1,4 @@
-package com.s2u2m.slancer.account.mapper;
+package com.s2u2m.slancer.account.dao;
 
 import com.s2u2m.slancer.account.entity.PhoneAccountEntity;
 

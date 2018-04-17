@@ -19,6 +19,7 @@ public class SlancerTokenOp implements ITokenOp<SlancerTokenData> {
 
     public SlancerTokenOp(S2u2mRedisCache cache, SlancerTokenProperty property) {
         this.cache = cache;
+        this.property = property;
     }
 
     @Override
