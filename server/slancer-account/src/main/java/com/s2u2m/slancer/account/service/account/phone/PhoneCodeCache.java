@@ -1,4 +1,4 @@
-package com.s2u2m.slancer.account.service.account;
+package com.s2u2m.slancer.account.service.account.phone;
 
 import lombok.Getter;
 import lombok.Setter;

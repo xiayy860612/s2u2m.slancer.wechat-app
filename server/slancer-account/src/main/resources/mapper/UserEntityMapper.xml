@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.s2u2m.slancer.account.mapper.UserMapper">
+<mapper namespace="com.s2u2m.slancer.account.dao.UserDAO">
     <resultMap id="UserEntityMap" type="UserEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
@@ -20,7 +20,13 @@
         <include refid="all_fields"/>
         )
         values (
-        #{id}, #{nickName}, #{password},
+        #{id}, #{nickName},
+        <choose>
+            <when test="password != null and password != ''">
+                #{password},
+            </when>
+            <otherwise>null,</otherwise>
+        </choose>
         #{createTime}, #{updateTime}, #{deleteFlag}
         )
     </insert>

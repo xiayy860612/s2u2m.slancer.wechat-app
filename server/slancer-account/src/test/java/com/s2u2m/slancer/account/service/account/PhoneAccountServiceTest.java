@@ -1,10 +1,12 @@
 package com.s2u2m.slancer.account.service.account;
 
 import com.s2u2m.slancer.account.entity.UserEntity;
+import com.s2u2m.slancer.account.service.account.phone.PhoneAccountService;
+import com.s2u2m.slancer.account.service.account.phone.PhoneCodeCache;
+import com.s2u2m.slancer.account.service.account.phone.PhoneRegInfo;
 import com.s2u2m.slancer.core.utils.cache.redis.S2u2mRedisCache;
 import com.s2u2m.slancer.test.AbS2u2mSpringTest;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 

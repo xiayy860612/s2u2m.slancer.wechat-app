@@ -18,6 +18,11 @@ public enum AccountErrorCode implements IErrorCodeEnum {
     PhoneLoginCodeNotExisted(107),
     PhoneLoginCodeNotMatched(108),
     PhoneAccountExisted(109),
+
+    WechatAccountNotExisted(201),
+    WechatJsCodeNotExisted(202),
+
+    OtherServiceWechatFailed(701),
     ;
 
     @Override

@@ -1,12 +1,10 @@
-package com.s2u2m.slancer.account.service.account;
+package com.s2u2m.slancer.account.service.account.phone;
 
 import com.s2u2m.slancer.account.AccountErrorCode;
 import com.s2u2m.slancer.account.entity.PhoneAccountEntity;
 import com.s2u2m.slancer.account.entity.UserEntity;
-import com.s2u2m.slancer.account.mapper.PhoneAccountMapper;
+import com.s2u2m.slancer.account.dao.PhoneAccountMapper;
 import com.s2u2m.slancer.account.service.UserService;
-import com.s2u2m.slancer.core.formatchecker.PasswordFormatChecker;
-import com.s2u2m.slancer.core.formatchecker.PasswordFormatProperty;
 import com.s2u2m.slancer.core.formatchecker.PhoneFormatChecker;
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
 import com.s2u2m.slancer.core.uid.SnowFlakeUidGenerator;
