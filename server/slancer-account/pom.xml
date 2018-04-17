@@ -13,7 +13,7 @@
 
     <properties>
         <!--flyway config-->
-        <flyway.configFile>${basedir}/src/main/resources/flyway.conf</flyway.configFile>
+        <flyway.configFile>${pom.basedir}/deploy/flyway/dev.conf</flyway.configFile>
     </properties>
 
 
