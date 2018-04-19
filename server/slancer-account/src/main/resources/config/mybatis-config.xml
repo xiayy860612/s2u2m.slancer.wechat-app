@@ -52,6 +52,8 @@
     </typeAliases>
 
     <typeHandlers>
+        <typeHandler handler="com.s2u2m.slancer.core.enumhandler.IntEnumTypeHandler"
+                     javaType="com.s2u2m.slancer.account.entity.enums.GenderEnum" />
 
     </typeHandlers>
 

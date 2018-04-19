@@ -4,10 +4,12 @@ import com.s2u2m.slancer.account.AccountErrorCode;
 import com.s2u2m.slancer.account.dao.WechatAccountDAO;
 import com.s2u2m.slancer.account.entity.UserEntity;
 import com.s2u2m.slancer.account.entity.WechatAccountEntity;
+import com.s2u2m.slancer.account.entity.enums.GenderEnum;
 import com.s2u2m.slancer.account.otherService.wechat.WechatService;
 import com.s2u2m.slancer.account.otherService.wechat.WechatServiceProperty;
 import com.s2u2m.slancer.account.otherService.wechat.dto.WechatSession;
 import com.s2u2m.slancer.account.service.UserService;
+import com.s2u2m.slancer.core.enumhandler.IntEnumParser;
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
 import com.s2u2m.slancer.core.utils.cache.redis.S2u2mRedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +65,10 @@ public class WechatAccountService {
 
         // create user
         UserEntity input = new UserEntity()
-                .setNickName(info.getNickName());
+                .setNickName(info.getNickName())
+                .setAvatarUrl(info.getAvatarUrl())
+                .setGender(info.getGender())
+                .setCity(info.getCity());
         UserEntity entity = userService.reg(input);
 
         // create account and bind to user

@@ -14,4 +14,7 @@ import lombok.experimental.Accessors;
 public class WechatRegInfoDTO {
     private String wechatCode;
     private String nickName;
+    private String avatarUrl;
+    private Integer gender;
+    private String city;
 }

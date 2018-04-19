@@ -5,7 +5,9 @@ public enum FrameworkErrorCode implements IErrorCodeEnum {
     ComponentError(1),
 
     // uid error: 1XX
-    UidGenerateUidError(101)
+    UidGenerateUidError(101),
+
+    IntEnumNotExisted(150),
     ;
 
     @Override

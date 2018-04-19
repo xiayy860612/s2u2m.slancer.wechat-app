@@ -30,7 +30,7 @@ public class UserService {
     @Transactional
     public UserEntity reg(UserEntity input) {
         if (input.getPassword() != null) {
-            boolean rst = !new PasswordFormatChecker(
+            boolean rst = new PasswordFormatChecker(
                     input.getPassword(), passwordFormatProperty)
                     .check();
             if (!rst) {
