@@ -1,5 +1,6 @@
 package com.s2u2m.slancer.account.service.account.wechat;
 
+import com.s2u2m.slancer.account.entity.enums.GenderEnum;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -14,4 +15,7 @@ import lombok.experimental.Accessors;
 public class WechatRegInfo {
     private String code;
     private String nickName;
+    private String avatarUrl;
+    private GenderEnum gender;
+    private String city;
 }

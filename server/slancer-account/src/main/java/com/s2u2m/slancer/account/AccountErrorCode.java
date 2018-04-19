@@ -2,6 +2,7 @@ package com.s2u2m.slancer.account;
 
 import com.s2u2m.slancer.core.exception.error.ErrorTypeEnum;
 import com.s2u2m.slancer.core.exception.error.IErrorCodeEnum;
+import lombok.Getter;
 
 /**
  * @author Amos Xia
@@ -32,7 +33,7 @@ public enum AccountErrorCode implements IErrorCodeEnum {
 
     @Override
     public int getCode() {
-        return 0;
+        return this.code;
     }
 
     private int code;

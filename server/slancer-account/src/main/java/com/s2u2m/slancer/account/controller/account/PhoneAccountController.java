@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author
  */
-//@RestController
+@RestController
 @RequestMapping(value = "/account/phone")
 public class PhoneAccountController {
 
