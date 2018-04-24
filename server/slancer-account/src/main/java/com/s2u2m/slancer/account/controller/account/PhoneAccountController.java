@@ -5,6 +5,7 @@ import com.s2u2m.slancer.account.entity.UserEntity;
 import com.s2u2m.slancer.account.service.account.phone.PhoneAccountService;
 import com.s2u2m.slancer.account.service.account.phone.PhoneRegInfo;
 import com.s2u2m.slancer.account.utils.token.SlancerTokenData;
+import com.s2u2m.slancer.core.serialization.S2u2mResponseBody;
 import com.s2u2m.slancer.core.token.ITokenOp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +23,14 @@ public class PhoneAccountController {
     @Autowired
     private ITokenOp<SlancerTokenData> tokenOp;
 
+    @S2u2mResponseBody
     @GetMapping(value = "/{phone}/regCode")
     public PhoneCodeDTO getRegCode(@PathVariable String phone) {
         String code = phoneAccountService.getRegCode(phone);
         return new PhoneCodeDTO().setCode(code);
     }
 
+    @S2u2mResponseBody
     @PostMapping(value = "/reg")
     public LoginInfoDTO reg(@RequestBody PhoneRegInfoDTO regInfoDTO) {
         // reg
@@ -49,6 +52,7 @@ public class PhoneAccountController {
         return new LoginInfoDTO().setToken(token).setInfo(userInfoDTO);
     }
 
+    @S2u2mResponseBody
     @PostMapping(value = "/pwdLogin")
     public LoginInfoDTO pwdLogin(@RequestBody PhonePwdLoginDTO loginDTO) {
         // login
@@ -65,12 +69,14 @@ public class PhoneAccountController {
         return new LoginInfoDTO().setToken(token).setInfo(userInfoDTO);
     }
 
+    @S2u2mResponseBody
     @GetMapping(value = "/{phone}/loginCode")
     public PhoneCodeDTO loginCode(@PathVariable String phone) {
         String code = phoneAccountService.getLoginCode(phone);
         return new PhoneCodeDTO().setCode(code);
     }
 
+    @S2u2mResponseBody
     @PostMapping(value = "/codeLogin")
     public LoginInfoDTO codeLogin(@RequestBody PhoneCodeLoginDTO loginDTO) {
         // login

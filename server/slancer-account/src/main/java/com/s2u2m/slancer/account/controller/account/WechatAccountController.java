@@ -9,6 +9,7 @@ import com.s2u2m.slancer.account.service.account.wechat.WechatAccountService;
 import com.s2u2m.slancer.account.service.account.wechat.WechatRegInfo;
 import com.s2u2m.slancer.account.utils.token.SlancerTokenData;
 import com.s2u2m.slancer.core.enumhandler.IntEnumParser;
+import com.s2u2m.slancer.core.serialization.S2u2mResponseBody;
 import com.s2u2m.slancer.core.token.ITokenOp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class WechatAccountController {
     @Autowired
     private ITokenOp<SlancerTokenData> tokenOp;
 
-//    @GetMapping(value = "/{wechatCode}/login")
+    @S2u2mResponseBody
     @PostMapping(value = "/{wechatCode}/login")
     public LoginInfoDTO login(@PathVariable String wechatCode) {
 
@@ -46,6 +47,7 @@ public class WechatAccountController {
         return new LoginInfoDTO().setToken(token).setInfo(userInfoDTO);
     }
 
+    @S2u2mResponseBody
     @PostMapping(value = "/reg")
     public LoginInfoDTO reg(@RequestBody WechatRegInfoDTO info) {
 

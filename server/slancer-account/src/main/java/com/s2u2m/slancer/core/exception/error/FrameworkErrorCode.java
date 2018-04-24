@@ -7,6 +7,8 @@ public enum FrameworkErrorCode implements IErrorCodeEnum {
     // uid error: 1XX
     UidGenerateUidError(101),
 
+    ResponseBuildError(111),
+
     IntEnumNotExisted(150),
     ;
 
