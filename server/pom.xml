@@ -78,6 +78,12 @@
             <version>${mysql.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.8</version>
+        </dependency>
+
         <!--test related dependencies-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
