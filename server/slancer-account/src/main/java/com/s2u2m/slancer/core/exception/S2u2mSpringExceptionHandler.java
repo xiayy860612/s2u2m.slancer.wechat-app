@@ -28,7 +28,7 @@ public class S2u2mSpringExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.OK)
     public ErrorResponse exceptionHandler(Exception exception, HttpServletRequest request) {
-        log.error(exception.toString());
+        exception.printStackTrace();
         S2u2mSpringException s2u2mSpringException = ExceptionBuilder.build(
                 FrameworkErrorCode.Unknown, exception.toString());
         return this.s2u2mExceptionHandler(s2u2mSpringException, request);
