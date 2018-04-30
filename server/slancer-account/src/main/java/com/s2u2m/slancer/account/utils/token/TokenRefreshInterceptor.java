@@ -1,5 +1,7 @@
 package com.s2u2m.slancer.account.utils.token;
 
+import com.s2u2m.slancer.account.utils.token.mobile.MobileUserTokenData;
+import com.s2u2m.slancer.account.utils.token.mobile.MobileUserTokenOp;
 import com.s2u2m.slancer.core.token.ITokenOp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -14,18 +16,18 @@ import javax.servlet.http.HttpServletResponse;
 public class TokenRefreshInterceptor extends HandlerInterceptorAdapter {
 
     @Autowired
-    ITokenOp<SlancerTokenData> tokenOp;
+    ITokenOp<MobileUserTokenData> tokenOp;
 
     @Override
     public boolean preHandle(
             HttpServletRequest request, HttpServletResponse response, Object handler
     ) throws Exception {
-        String token = request.getHeader(SlancerTokenOp.TokenKeyInHeader);
-        if (token == null) {
-            return true;
-        }
-
-        tokenOp.refresh(token);
+//        String token = request.getHeader(MobileUserTokenOp.TokenKeyInHeader);
+//        if (token == null) {
+//            return true;
+//        }
+//
+//        tokenOp.refresh(token);
         return true;
     }
 }

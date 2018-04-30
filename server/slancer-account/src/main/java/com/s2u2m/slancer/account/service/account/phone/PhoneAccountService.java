@@ -8,7 +8,7 @@ import com.s2u2m.slancer.account.service.UserService;
 import com.s2u2m.slancer.core.formatchecker.PhoneFormatChecker;
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
 import com.s2u2m.slancer.core.uid.SnowFlakeUidGenerator;
-import com.s2u2m.slancer.core.utils.cache.redis.S2u2mRedisCache;
+import com.s2u2m.slancer.core.cache.redis.S2u2mRedisCache;
 import com.s2u2m.slancer.core.utils.random.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

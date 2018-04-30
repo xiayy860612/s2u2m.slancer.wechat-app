@@ -9,6 +9,9 @@ import lombok.Getter;
  */
 public enum AccountErrorCode implements IErrorCodeEnum {
 
+    PermisiionNotExisted(31),
+
+    UserNotLogin(51),
 
     PhoneInvalid(101),
     PasswordInvalid(102),

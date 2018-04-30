@@ -2,9 +2,11 @@ package com.s2u2m.slancer.core.token;
 
 public interface ITokenOp <DT extends AbTokenData> {
 
-    String token(DT data);
+    void set(String token, DT data);
 
-    DT data(String token);
+    DT get(String token);
+
+    void del(String token);
 
     void refresh(String token);
 }

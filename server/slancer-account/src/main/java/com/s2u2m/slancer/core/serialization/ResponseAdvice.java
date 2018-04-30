@@ -32,6 +32,8 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
                                   ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {
         Class<?> retClass = methodParameter.getMethod().getReturnType();
-        return ResponseBuilder.build(o, retClass);
+        return retClass.equals(Void.TYPE) ?
+                ResponseBuilder.nothing()
+                : ResponseBuilder.build(o, retClass);
     }
 }

@@ -18,4 +18,8 @@ public class ResponseBuilder {
         response.setData(data);
         return response;
     }
+
+    public static NoDataResponse nothing() {
+        return new NoDataResponse();
+    }
 }
