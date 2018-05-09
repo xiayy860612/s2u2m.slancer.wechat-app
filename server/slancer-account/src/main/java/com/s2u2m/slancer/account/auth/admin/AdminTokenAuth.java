@@ -24,6 +24,6 @@ public class AdminTokenAuth implements AuthenticationToken {
 
     @Override
     public Object getCredentials() {
-        return null;
+        return this.token;
     }
 }

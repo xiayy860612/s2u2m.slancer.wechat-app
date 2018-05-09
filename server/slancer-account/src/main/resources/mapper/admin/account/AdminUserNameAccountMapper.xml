@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.s2u2m.slancer.account.dao.admin.account.AdminUserNameAccountDAO">
+    <resultMap id="AdminUserNameAccountEntityMap" type="AdminUserNameAccountEntity">
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+
+    <sql id="all_fields">
+        user_name, password, user_id,
+        create_time
+    </sql>
+
+    <insert id="insert" parameterType="AdminUserNameAccountEntity">
+        insert into admin_username_account (
+        <include refid="all_fields"/>
+        )
+        values (
+        #{userName}, #{password}, #{userId},
+        #{createTime}
+        )
+    </insert>
+
+    <select id="selectByUserName" resultMap="AdminUserNameAccountEntityMap">
+        select <include refid="all_fields" />
+        from admin_username_account
+        where user_name=#{userName}
+    </select>
+
+    <select id="exists" resultType="Boolean">
+        select count(*)
+        from admin_username_account
+        where user_name=#{userName}
+    </select>
+
+</mapper>

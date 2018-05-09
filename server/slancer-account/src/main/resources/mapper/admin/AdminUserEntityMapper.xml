@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.s2u2m.slancer.account.dao.admin.user.AdminUserDAO">
+    <resultMap id="AdminUserEntityMap" type="AdminUserEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag"/>
+    </resultMap>
+
+    <sql id="all_fields">
+        id, nick_name,
+        create_time, update_time, delete_flag
+    </sql>
+
+    <insert id="insert" parameterType="AdminUserEntity">
+        insert into admin_user (
+        <include refid="all_fields"/>
+        )
+        values (
+        #{id}, #{nickName},
+        #{createTime}, #{updateTime}, #{deleteFlag}
+        )
+    </insert>
+
+    <select id="selectById" resultMap="AdminUserEntityMap">
+        select <include refid="all_fields" />
+        from admin_user
+        where id=#{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.s2u2m.slancer.account.dao.mobile.UserDAO">
+    <resultMap id="UserEntityMap" type="UserEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl"/>
+        <result column="gender" jdbcType="TINYINT" property="gender"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag"/>
+    </resultMap>
+
+    <sql id="all_fields">
+        id, nick_name, password,
+        avatar_url, gender, city,
+        create_time, update_time, delete_flag
+    </sql>
+
+    <insert id="insert" parameterType="UserEntity">
+        insert into user_info (
+        <include refid="all_fields"/>
+        )
+        values (
+        #{id}, #{nickName},
+        <choose>
+            <when test="password != null and password != ''">
+                #{password},
+            </when>
+            <otherwise>null,</otherwise>
+        </choose>
+        <choose>
+            <when test="avatarUrl != null and avatarUrl != ''">
+                #{avatarUrl},
+            </when>
+            <otherwise>'',</otherwise>
+        </choose>
+        <choose>
+            <when test="gender != null">
+                #{gender},
+            </when>
+            <otherwise>0,</otherwise>
+        </choose>
+        <choose>
+            <when test="city != null and city != ''">
+                #{city},
+            </when>
+            <otherwise>null,</otherwise>
+        </choose>
+        #{createTime}, #{updateTime}, #{deleteFlag}
+        )
+    </insert>
+
+    <select id="selectById" resultMap="UserEntityMap">
+        select <include refid="all_fields" />
+        from user_info
+        where id=#{id}
+    </select>
+
+    <update id="update" parameterType="UserEntity">
+        update user_info
+        <set>
+            <if test="nickName != null and nickName !=''">
+                nick_name=#{nickName},
+            </if>
+            <if test="password != null and password !=''">
+                password=#{password},
+            </if>
+            <if test="avatarUrl != null and avatarUrl !=''">
+                avatar_url=#{avatarUrl},
+            </if>
+            <if test="gender != null">
+                gender=#{gender},
+            </if>
+            <if test="city != null and city !=''">
+                city=#{city},
+            </if>
+            update_time=#{updateTime}
+        </set>
+        where id=#{id}
+    </update>
+
+</mapper>

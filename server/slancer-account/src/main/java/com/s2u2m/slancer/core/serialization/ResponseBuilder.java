@@ -1,8 +1,5 @@
 package com.s2u2m.slancer.core.serialization;
 
-import com.s2u2m.slancer.core.exception.ExceptionBuilder;
-import com.s2u2m.slancer.core.exception.error.FrameworkErrorCode;
-
 /**
  * @author Amos Xia
  * @date 2018/4/24

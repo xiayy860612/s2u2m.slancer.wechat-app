@@ -8,6 +8,7 @@ import lombok.Getter;
  * @author Amos Xia
  */
 public enum AccountErrorCode implements IErrorCodeEnum {
+    Unknonw(0),
 
     PermisiionNotExisted(31),
 
@@ -27,6 +28,16 @@ public enum AccountErrorCode implements IErrorCodeEnum {
     WechatJsCodeNotExisted(202),
 
     OtherServiceWechatFailed(701),
+
+    //
+    SystemUserNameAccountExisted(901),
+    SystemUserNameAccountNotExisted(902),
+
+
+    // format error
+    UserNameOrPasswordFormatError(1001),
+
+
     ;
 
     @Override

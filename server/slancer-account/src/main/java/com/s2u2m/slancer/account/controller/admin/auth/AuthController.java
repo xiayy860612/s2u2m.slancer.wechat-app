@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * class AuthController
+ * class UnAuthController
  *
  * @author xiayy860612
  * @date 2018/5/7
  */
 @RestController
-@RequestMapping(value = "/auth")
+@RequestMapping(value = "/admin/auth")
 public class AuthController {
 
     @Autowired

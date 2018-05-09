@@ -3,7 +3,7 @@ package com.s2u2m.slancer.core.cache.redis;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
-import com.s2u2m.slancer.core.exception.error.FrameworkErrorCode;
+import com.s2u2m.slancer.core.exception.error.FrameworkCoreErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -34,7 +34,7 @@ public class S2u2mRedisCache {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             throw ExceptionBuilder.build(
-                    FrameworkErrorCode.ComponentError,
+                    FrameworkCoreErrorCode.ComponentError,
                     e.getMessage());
         }
 
@@ -54,7 +54,7 @@ public class S2u2mRedisCache {
         } catch (IOException e) {
             e.printStackTrace();
             throw ExceptionBuilder.build(
-                    FrameworkErrorCode.ComponentError,
+                    FrameworkCoreErrorCode.ComponentError,
                     e.getMessage());
         }
     }

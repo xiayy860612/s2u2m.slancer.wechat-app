@@ -3,8 +3,6 @@ package com.s2u2m.slancer.account.entity.admin.auth;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 /**
  * class AdminRoleEntity
  *

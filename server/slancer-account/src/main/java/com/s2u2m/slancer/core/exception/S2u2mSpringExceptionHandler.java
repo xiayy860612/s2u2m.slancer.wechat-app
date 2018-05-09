@@ -2,7 +2,7 @@ package com.s2u2m.slancer.core.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.s2u2m.slancer.core.exception.error.FrameworkErrorCode;
+import com.s2u2m.slancer.core.exception.error.FrameworkCoreErrorCode;
 import com.s2u2m.slancer.core.serialization.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,6 +18,7 @@ public class S2u2mSpringExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     public ErrorResponse s2u2mExceptionHandler(
             S2u2mSpringException exception, HttpServletRequest httpServletRequest) {
+        exception.printStackTrace();
         log.error(exception.toString());
         ErrorResponse response = new ErrorResponse();
         response.setCode(exception.getErrCode());
@@ -30,7 +31,7 @@ public class S2u2mSpringExceptionHandler {
     public ErrorResponse exceptionHandler(Exception exception, HttpServletRequest request) {
         exception.printStackTrace();
         S2u2mSpringException s2u2mSpringException = ExceptionBuilder.build(
-                FrameworkErrorCode.Unknown, exception.toString());
+                FrameworkCoreErrorCode.Unknown, exception.toString());
         return this.s2u2mExceptionHandler(s2u2mSpringException, request);
     }
 }

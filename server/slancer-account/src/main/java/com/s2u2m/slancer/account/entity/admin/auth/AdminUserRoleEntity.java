@@ -1,5 +1,6 @@
 package com.s2u2m.slancer.account.entity.admin.auth;
 
+import com.s2u2m.slancer.account.entity.admin.auth.AdminRoleEntity;
 import lombok.Getter;
 import lombok.Setter;
 

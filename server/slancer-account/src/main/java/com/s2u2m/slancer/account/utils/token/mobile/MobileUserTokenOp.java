@@ -1,15 +1,10 @@
 package com.s2u2m.slancer.account.utils.token.mobile;
 
-import com.s2u2m.slancer.account.entity.UserEntity;
 import com.s2u2m.slancer.account.utils.token.SlancerTokenProperty;
-import com.s2u2m.slancer.account.utils.token.mobile.MobileUserTokenData;
-import com.s2u2m.slancer.account.utils.token.mobile.MobileUserTokenKeyGen;
 import com.s2u2m.slancer.core.token.ITokenOp;
 import com.s2u2m.slancer.core.cache.redis.S2u2mRedisCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 /**
  * @author Amos Xia

@@ -1,7 +1,7 @@
 package com.s2u2m.slancer.core.enumhandler;
 
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
-import com.s2u2m.slancer.core.exception.error.FrameworkErrorCode;
+import com.s2u2m.slancer.core.exception.error.FrameworkCoreErrorCode;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -18,7 +18,7 @@ public class IntEnumParser {
                 .filter(et -> et.getValue() == value)
                 .findAny();
         if(!optional.isPresent()) {
-            throw ExceptionBuilder.build(FrameworkErrorCode.IntEnumNotExisted,
+            throw ExceptionBuilder.build(FrameworkCoreErrorCode.IntEnumNotExisted,
                     String.format("%d not existed in Enum[%s]", value, etClass.getName()));
         }
 

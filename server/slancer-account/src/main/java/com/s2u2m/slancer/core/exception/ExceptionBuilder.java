@@ -14,4 +14,9 @@ public class ExceptionBuilder {
         exception.setErrMsg(errMsg);
         return exception;
     }
+
+    public static <ET extends IErrorCodeEnum> S2u2mSpringException build(
+            ET errCode) {
+        return build(errCode, errCode.toString());
+    }
 }

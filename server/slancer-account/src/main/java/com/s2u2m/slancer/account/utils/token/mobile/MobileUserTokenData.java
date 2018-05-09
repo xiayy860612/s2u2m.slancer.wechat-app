@@ -1,6 +1,6 @@
 package com.s2u2m.slancer.account.utils.token.mobile;
 
-import com.s2u2m.slancer.account.entity.UserEntity;
+import com.s2u2m.slancer.account.entity.mobile.UserEntity;
 import com.s2u2m.slancer.core.token.AbTokenData;
 import lombok.Getter;
 import lombok.Setter;

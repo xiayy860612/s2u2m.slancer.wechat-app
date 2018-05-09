@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.s2u2m.slancer.account.dao.mobile.WechatAccountDAO">
+    <resultMap id="WechatAccountEntityMap" type="WechatAccountEntity">
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="wechat_id" jdbcType="VARCHAR" property="openId"/>
+    </resultMap>
+
+    <sql id="all_fields">
+        user_id, wechat_id
+    </sql>
+
+    <insert id="insert" parameterType="WechatAccountEntity">
+        insert into wechat_account (
+        <include refid="all_fields"/>
+        )
+        values (
+        #{userId}, #{openId}
+        )
+    </insert>
+
+    <select id="selectByOpenId" resultMap="WechatAccountEntityMap">
+        select <include refid="all_fields" />
+        from wechat_account
+        where wechat_id = #{openId}
+    </select>
+
+</mapper>

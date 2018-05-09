@@ -1,15 +1,12 @@
 package com.s2u2m.slancer.account.auth.admin;
 
 import com.s2u2m.slancer.account.AccountErrorCode;
-import com.s2u2m.slancer.account.dao.admin.AdminUserRoleDAO;
+import com.s2u2m.slancer.account.dao.admin.auth.AdminUserRoleDAO;
 import com.s2u2m.slancer.account.entity.admin.auth.AdminUserRoleEntity;
 import com.s2u2m.slancer.account.utils.token.admin.AdminUserTokenData;
 import com.s2u2m.slancer.account.utils.token.admin.AdminUserTokenOp;
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -62,9 +59,9 @@ public class AdminUserRealm extends AuthorizingRealm {
         AdminTokenAuth auth = (AdminTokenAuth) authenticationToken;
         AdminUserTokenData tokenData = tokenOp.get(auth.getToken());
         if (tokenData == null) {
-            throw ExceptionBuilder.build(AccountErrorCode.UserNotLogin, "pls login first");
+            throw new UnknownAccountException();
         }
 
-        return new SimpleAuthenticationInfo(tokenData, null, getName());
+        return new SimpleAuthenticationInfo(tokenData, auth.getCredentials(), getName());
     }
 }

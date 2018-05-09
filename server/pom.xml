@@ -17,17 +17,20 @@
 
     <modules>
         <module>slancer-account</module>
+        <module>slancer-core</module>
     </modules>
 
     <properties>
+        <!--project config-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
         <!--mysql config-->
         <mysql.jdbc>com.mysql.cj.jdbc.Driver</mysql.jdbc>
         <mysql.user>s2u2m</mysql.user>
         <mysql.pwd>s2u2m123</mysql.pwd>
         <mysql.version>6.0.6</mysql.version>
-
-        <!--flyway config-->
-        <flyway.configFile></flyway.configFile>
 
         <!--mybatis related config-->
         <mybatis.mapper.version>3.5.2</mybatis.mapper.version>
@@ -125,24 +128,14 @@
     </dependencies>
 
     <build>
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>${basedir}/src/main/resources/config</directory>-->
-                <!--<filtering>true</filtering>-->
-                <!--<includes>-->
-                    <!--<include>*.properties</include>-->
-                <!--</includes>-->
-            <!--</resource>-->
-        <!--</resources>-->
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
 
@@ -150,16 +143,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>5.0.7</version>
-                <!--below config only used in dev env-->
-                <configuration>
-                    <configFile>${flyway.configFile}</configFile>
-                </configuration>
             </plugin>
 
         </plugins>

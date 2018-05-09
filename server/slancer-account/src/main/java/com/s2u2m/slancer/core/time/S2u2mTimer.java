@@ -11,7 +11,7 @@ import java.util.TimeZone;
  */
 public class S2u2mTimer {
 
-    public static final String defaultZone = "UTC";
+    public static final String defaultZone = "GMT+8";
 
     static {
         TimeZone.setDefault(TimeZone.getTimeZone(defaultZone));

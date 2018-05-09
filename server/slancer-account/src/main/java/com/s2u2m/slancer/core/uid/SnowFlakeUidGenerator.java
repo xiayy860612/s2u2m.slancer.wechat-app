@@ -1,7 +1,7 @@
 package com.s2u2m.slancer.core.uid;
 
 import com.s2u2m.slancer.core.exception.ExceptionBuilder;
-import com.s2u2m.slancer.core.exception.error.FrameworkErrorCode;
+import com.s2u2m.slancer.core.exception.error.FrameworkCoreErrorCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -69,7 +69,7 @@ public class SnowFlakeUidGenerator {
 		long curTimestamp = System.currentTimeMillis();
 		if (curTimestamp < lastTimestamp) {
 			throw ExceptionBuilder.build(
-					FrameworkErrorCode.UidGenerateUidError,
+					FrameworkCoreErrorCode.UidGenerateUidError,
 					"Clock moved backwards.");
 		}
 
